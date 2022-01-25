@@ -1,7 +1,7 @@
-var test = require('tape')
-var fs = require('fs')
+import test from 'tape'
+import fs from 'fs'
 
-var splitIntoLines =  require('../utils').splitIntoLines
+import { splitIntoLines } from '../utils.js'
 
 test('lines under max are ok', function(t) {
   t.plan(1)

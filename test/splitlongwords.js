@@ -1,7 +1,7 @@
-var test = require('tape')
-var fs = require('fs')
+import test from 'tape'
+import fs from 'fs'
 
-var splitLongWords =  require('../utils').splitLongWords
+import { splitLongWords } from '../utils.js'
 
 test('split long word with …', function(t) {
   t.plan(1)

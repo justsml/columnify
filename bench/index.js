@@ -1,10 +1,11 @@
-var test = require('tape')
-var fs = require('fs')
+import test from 'tape'
+import { readFileSync } from 'fs'
+import columnify from '../index.js'
+import getFileAndDirname from './helpers.js';
+const {__dirname} = getFileAndDirname(import.meta.url);
 
-var columnify =  require('../')
-
-var data = require('./large.json')
-var data2 = fs.readFileSync(__dirname + '/large.json', 'utf8')
+import data, { slice, length } from './large.json'
+var data2 = readFileSync(__dirname + '/large.json', 'utf8')
 
 test('handling large data', function(t) {
   t.plan(3)
@@ -23,7 +24,7 @@ test('handling large data', function(t) {
 
   // have to reduce dataset, otherwise bench
   // blows memory limit
-  data = data.slice(0, data.length / 20)
+  data = slice(0, length / 20)
   console.time('large data 1')
   t.ok(columnify(data, {
     config: {

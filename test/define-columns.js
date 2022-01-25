@@ -1,7 +1,7 @@
-var test = require('tape')
-var fs = require('fs')
+import test from 'tape'
+import fs from 'fs'
 
-var columnify =  require('../')
+import columnify from '../index.js'
 
 var data = [{
   name: 'module1',

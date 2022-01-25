@@ -1,7 +1,9 @@
-var test = require('tape')
-var fs = require('fs')
+import test from 'tape'
+import { readFileSync } from 'fs'
 
-var columnify =  require('../')
+import columnify from '../index.js'
+import getFileAndDirname from './helpers.js';
+const {__dirname} = getFileAndDirname(import.meta.url);
 
 var data = {
   "mocha@1.18.2": 1,
@@ -25,13 +27,13 @@ var data = {
 
 test('objects are automatically converted into k/v array', function(t) {
   t.plan(1)
-  var expected = fs.readFileSync(__dirname + '/auto-columns-expected.txt', 'utf8')
+  var expected = readFileSync(__dirname + '/auto-columns-expected.txt', 'utf8')
   t.equal(columnify(data).trim(), expected.trim())
 })
 
 test('column names can be provided', function(t) {
   t.plan(1)
-  var expected = fs.readFileSync(__dirname + '/auto-columns-expected.txt', 'utf8')
+  var expected = readFileSync(__dirname + '/auto-columns-expected.txt', 'utf8')
   expected = expected.replace('VALUE', 'COUNT', 'gmi')
   // RE 'count': picked a word with same length (as 'value') so didn't need a
   // new fixture (damn whitespace)

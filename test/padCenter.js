@@ -1,6 +1,6 @@
-var test = require('tape')
+import test from 'tape'
 
-var padCenter =  require('../utils').padCenter
+import { padCenter } from '../utils.js'
 
 test('pad string with spaces up to len (sides equal)', function(t) {
   t.plan(1)

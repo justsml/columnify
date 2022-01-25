@@ -1,6 +1,6 @@
-var stripAnsi = require('strip-ansi')
-var wcwidth = require('wcwidth')
+import stripAnsi from 'strip-ansi'
+import wcwidth from 'wcwidth'
 
-module.exports = function(str) {
+export default function(str) {
   return wcwidth(stripAnsi(str))
 }

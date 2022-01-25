@@ -1,6 +1,6 @@
 "use strict"
 
-var wcwidth = require('./width')
+import wcwidth from './width.js'
 
 /**
  * repeat string `str` up to total length of `len`
@@ -185,9 +185,15 @@ function truncateString(str, max) {
  * Exports
  */
 
-module.exports.padRight = padRight
-module.exports.padCenter = padCenter
-module.exports.padLeft = padLeft
-module.exports.splitIntoLines = splitIntoLines
-module.exports.splitLongWords = splitLongWords
-module.exports.truncateString = truncateString
+const _padRight = padRight
+export { _padRight as padRight }
+const _padCenter = padCenter
+export { _padCenter as padCenter }
+const _padLeft = padLeft
+export { _padLeft as padLeft }
+const __splitIntoLines = splitIntoLines
+export { __splitIntoLines as splitIntoLines }
+const _splitLongWords = splitLongWords
+export { _splitLongWords as splitLongWords }
+const _truncateString = truncateString
+export { _truncateString as truncateString }

@@ -1,7 +1,9 @@
-var test = require('tape')
-var fs = require('fs')
+import test from 'tape'
+import { readFileSync } from 'fs'
 
-var columnify =  require('../')
+import columnify from '../index.js'
+import getFileAndDirname from './helpers.js';
+const {__dirname} = getFileAndDirname(import.meta.url);
 
 var data = [{
   name: 'mod1',
@@ -19,7 +21,7 @@ var data = [{
 
 test('truncation character is configurable', function(t) {
   t.plan(1)
-  var expected = fs.readFileSync(__dirname + '/truncate-expected.txt', 'utf8').replace(/…/g, '>')
+  var expected = readFileSync(__dirname + '/truncate-expected.txt', 'utf8').replace(/…/g, '>')
   t.equal(columnify(data, {
     truncateMarker: '>',
     truncate: true,
@@ -33,7 +35,7 @@ test('truncation character is configurable', function(t) {
 
 test('truncation character can be multichar', function(t) {
   t.plan(1)
-  var expected = fs.readFileSync(__dirname + '/truncate-multichar-expected.txt', 'utf8')
+  var expected = readFileSync(__dirname + '/truncate-multichar-expected.txt', 'utf8')
 
   t.equal(columnify(data, {
     truncateMarker: '...',

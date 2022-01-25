@@ -1,7 +1,7 @@
-var test = require('tape')
-var fs = require('fs')
+import test from 'tape'
+import fs from 'fs'
 
-var truncateString =  require('../utils').truncateString
+import { truncateString } from '../utils.js'
 
 
 test('truncate string which is longer than max', function(t) {

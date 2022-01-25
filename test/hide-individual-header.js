@@ -1,7 +1,9 @@
-var test = require('tape')
-var fs = require('fs')
+import test from 'tape'
+import { readFileSync } from 'fs'
 
-var columnify =  require('../')
+import columnify from '../index.js'
+import getFileAndDirname from './helpers.js';
+const {__dirname} = getFileAndDirname(import.meta.url);
 
 var data = [{
   id: 0,
@@ -15,6 +17,6 @@ var data = [{
 
 test('hide id column', function(t) {
   t.plan(1)
-  var expected = fs.readFileSync(__dirname + '/hide-individual-header-expected.txt', 'utf8')
+  var expected = readFileSync(__dirname + '/hide-individual-header-expected.txt', 'utf8')
   t.equal(columnify(data, {config: {id: {showHeaders: false}} }), expected)
 })

@@ -1,7 +1,9 @@
-var test = require('tape')
-var fs = require('fs')
+import test from 'tape'
+import { readFileSync } from 'fs'
 
-var columnify =  require('../')
+import columnify from '../index.js'
+import getFileAndDirname from './helpers.js';
+const {__dirname} = getFileAndDirname(import.meta.url);
 
 var data = [{
   name: "glob@3.2.9",
@@ -21,14 +23,14 @@ var data = [{
 
 test('leaving existing linebreaks', function(t) {
   t.plan(1)
-  var expected = fs.readFileSync(__dirname + '/existing-linebreaks-expected.txt', 'utf8')
+  var expected = readFileSync(__dirname + '/existing-linebreaks-expected.txt', 'utf8')
   t.equal(columnify(data, {preserveNewLines: true}).trim(), expected.trim())
   t.end()
 })
 
 test('removing existing linebreaks', function(t) {
   t.plan(1)
-  var expected = fs.readFileSync(__dirname + '/remove-existing-linebreaks-expected.txt', 'utf8')
+  var expected = readFileSync(__dirname + '/remove-existing-linebreaks-expected.txt', 'utf8')
   t.equal(columnify(data).trim(), expected.trim())
   t.end()
 })

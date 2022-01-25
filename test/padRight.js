@@ -1,7 +1,7 @@
-var test = require('tape')
-var fs = require('fs')
+import test from 'tape'
+import fs from 'fs'
 
-var padRight =  require('../utils').padRight
+import { padRight } from '../utils.js'
 
 test('pad string with spaces up to len', function(t) {
   t.plan(1)

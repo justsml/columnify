@@ -1,14 +1,7 @@
 "use strict"
 
-const wcwidth = require('./width')
-const {
-  padRight,
-  padCenter,
-  padLeft,
-  splitIntoLines,
-  splitLongWords,
-  truncateString
-} = require('./utils')
+import wcwidth from './width.js'
+import { padRight, padCenter, padLeft, splitIntoLines, splitLongWords, truncateString } from './utils.js'
 
 const DEFAULT_HEADING_TRANSFORM = key => key.toUpperCase()
 
@@ -27,7 +20,7 @@ const DEFAULTS = Object.freeze({
   dataTransform: DEFAULT_DATA_TRANSFORM
 })
 
-module.exports = function(items, options = {}) {
+export default function(items, options = {}) {
 
   let columnConfigs = options.config || {}
   delete options.config // remove config so doesn't appear on every column.

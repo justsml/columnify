@@ -1,8 +1,9 @@
 {
-  "name": "columnify",
-  "version": "1.5.4",
+  "name": "@justsml/columnify",
+  "version": "1.6.0",
   "description": "Render data in text columns. Supports in-column text-wrap.",
   "main": "columnify.js",
+  "type": "module",
   "scripts": {
     "pretest": "npm prune",
     "test": "make prepublish && tape test/*.js | tap-spec",
@@ -11,7 +12,7 @@
   },
   "babel": {
     "presets": [
-      "es2015"
+      "es2020"
     ]
   },
   "author": "Tim Oxley",
@@ -19,14 +20,14 @@
   "devDependencies": {
     "babel": "^6.3.26",
     "babel-cli": "^6.3.17",
-    "babel-preset-es2015": "^6.3.13",
-    "chalk": "^1.1.1",
-    "tap-spec": "^4.1.1",
-    "tape": "^4.4.0"
+    "babel-preset-es2020": "^1.0.2",
+    "chalk": "^5.0.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^5.4.1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/timoxley/columnify.git"
+    "url": "git://github.com/justsml/columnify.git"
   },
   "keywords": [
     "column",
@@ -42,7 +43,7 @@
   },
   "homepage": "https://github.com/timoxley/columnify",
   "dependencies": {
-    "strip-ansi": "^3.0.0",
+    "strip-ansi": "^7.0.1",
     "wcwidth": "^1.0.0"
   },
   "directories": {
