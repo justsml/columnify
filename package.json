@@ -16,6 +16,9 @@
     ]
   },
   "author": "Tim Oxley",
+  "contributors": [
+    "Dan Levy <dan@danlevy.net>"
+  ],
   "license": "MIT",
   "devDependencies": {
     "babel": "^6.3.26",
@@ -39,9 +42,9 @@
     "table"
   ],
   "bugs": {
-    "url": "https://github.com/timoxley/columnify/issues"
+    "url": "https://github.com/justsml/columnify/issues"
   },
-  "homepage": "https://github.com/timoxley/columnify",
+  "homepage": "https://github.com/justsml/columnify",
   "dependencies": {
     "strip-ansi": "^7.0.1",
     "wcwidth": "^1.0.0"

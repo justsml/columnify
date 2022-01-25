@@ -9,6 +9,8 @@
 [![Dependency Status](https://david-dm.org/timoxley/columnify.svg)](https://david-dm.org/timoxley/columnify)
 [![devDependency Status](https://david-dm.org/timoxley/columnify/dev-status.svg)](https://david-dm.org/timoxley/columnify#info=devDependencies)
 
+**Note:** Forked to upgrade to ESM, plus updated dependencies.
+
 Create text-based columns suitable for console output from objects or
 arrays of objects.
 
