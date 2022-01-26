@@ -1,9 +1,10 @@
 {
   "name": "@justsml/columnify",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Render data in text columns. Supports in-column text-wrap.",
   "main": "columnify.js",
   "type": "module",
+  "types": "index.d.ts",
   "scripts": {
     "pretest": "npm prune",
     "test": "make prepublish && tape test/*.js | tap-spec",
@@ -26,7 +27,8 @@
     "babel-preset-es2020": "^1.0.2",
     "chalk": "^5.0.0",
     "tap-spec": "^5.0.0",
-    "tape": "^5.4.1"
+    "tape": "^5.4.1",
+    "typescript": "^4.5.5"
   },
   "repository": {
     "type": "git",
