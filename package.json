@@ -1,14 +1,14 @@
 {
   "name": "@justsml/columnify",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "Render data in text columns. Supports in-column text-wrap.",
   
   "source": "./index.js",
-  "exports": "./dist/index.js",
+  "exports": "./dist/main.js",
   "main": "./dist/main.js",
   "module": "./dist/module.js",
-  "modern": "dist/modern.js",
-  "legacy": "dist/legacy.js",
+  "modern": "./dist/modern.js",
+  "legacy": "./dist/legacy.js",
   "targets": {
     "modern": {
       "optimize": false,
