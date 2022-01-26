@@ -1,6 +1,6 @@
 {
   "name": "@justsml/columnify",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "Render data in text columns. Supports in-column text-wrap.",
   "main": "columnify.js",
   "type": "module",

@@ -16,6 +16,7 @@ declare namespace columnify {
         preserveNewLines?: boolean | undefined;
         showHeaders?: boolean | undefined;
         truncateMarker?: string | undefined;
+        truncate?: boolean | undefined;
     }
 
     interface GlobalOptions extends Options {
@@ -24,7 +25,7 @@ declare namespace columnify {
         config?: {
             [columnName: string]: Options;
         } | undefined;
-        maxLineWidth?: number | undefined;
+        maxLineWidth?: 'auto' | number | undefined;
         truncate?: boolean | undefined;
         widths?: {
             [columnName: string]: Pick<Options, 'minWidth' | 'maxWidth'>;
