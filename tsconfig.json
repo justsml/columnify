@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "module": "ES6",
     "lib": ["es6"],
     "noImplicitAny": true,
@@ -15,5 +15,5 @@
     "noEmit": true,
     "forceConsistentCasingInFileNames": true
   },
-  "files": ["index.d.ts"],
+  "include": ["index.d.ts", "test/**/*", "./*.js"],
 }

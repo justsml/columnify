@@ -1,2 +1,4 @@
 node_modules
 columnify.js
+.DS_Store
+.parcel-cache

@@ -1,11 +1,44 @@
 {
   "name": "@justsml/columnify",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "Render data in text columns. Supports in-column text-wrap.",
-  "main": "columnify.js",
-  "type": "module",
-  "types": "index.d.ts",
+  
+  "source": "./index.js",
+  "exports": "./dist/index.js",
+  "main": "./dist/main.js",
+  "module": "./dist/module.js",
+  "modern": "dist/modern.js",
+  "legacy": "dist/legacy.js",
+  "targets": {
+    "modern": {
+      "optimize": false,
+      "outputFormat": "esmodule",
+      "engines": {
+        "node": ">= 12"
+      }
+    },
+    "legacy": {
+      "optimize": false,
+      "outputFormat": "commonjs",
+      "engines": {
+        "browsers": "> 0.5%, last 2 versions, not dead"
+      }
+    }
+  },
   "scripts": {
+    "prepublishOnly": "yarn run build",
+    "release:npm": "npm publish --access public --registry https://registry.npmjs.org/",
+    "release:github": "npm publish --access public --registry https://npm.pkg.github.com/",
+    "test": "yarn run build && tape dist/test/*.js | tap-spec",
+    "build": "npx rimraf ./dist/* && yarn run build:types && yarn run build:bundle",
+    "build:bundle": "parcel build ./index.js",
+    "build:types": "tsc --declaration --declarationMap --module amd --outFile dist/index.js"
+  },
+  
+  "// main": "columnify.js",
+  "// type": "module",
+  "// types": "index.d.ts",
+  "// scripts": {
     "pretest": "npm prune",
     "test": "make prepublish && tape test/*.js | tap-spec",
     "bench": "npm test && node bench",
@@ -22,9 +55,10 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "babel": "^6.3.26",
-    "babel-cli": "^6.3.17",
-    "babel-preset-es2020": "^1.0.2",
+    "@parcel/packager-ts": "^2.0.1",
+    "@parcel/transformer-typescript-types": "^2.0.1",
+    "@types/node": "^17.0.0",
+    "parcel": "^2.0.1",
     "chalk": "^5.0.0",
     "tap-spec": "^5.0.0",
     "tape": "^5.4.1",
@@ -53,5 +87,15 @@
   },
   "directories": {
     "test": "test"
+  },
+  "files": [
+    "dist/**/*.js",
+    "index.d.ts"
+  ],
+  "packageManager": "yarn@1.10.0",
+  "engineStrict": true,
+  "engines": {
+    "yarn": ">=1.10.0",
+    "node": ">=12.0.0"
   }
 }
